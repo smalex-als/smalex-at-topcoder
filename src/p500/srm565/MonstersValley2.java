@@ -17,16 +17,6 @@ public class MonstersValley2 {
     if (dread.length == pos) {
       return totalPrice;
     }
-    boolean ok = true;
-    for (int i = pos; i < dread.length; i++) {
-      if (dread[i] > scariness) {
-        ok = false;
-        break;
-      }
-    }
-    if (ok) {
-      return totalPrice;
-    }
     int c0 = solve(dread, price, pos + 1, scariness + dread[pos], totalPrice + price[pos]);
     if (dread[pos] <= scariness) {
       int c1 = solve(dread, price, pos + 1, scariness, totalPrice);

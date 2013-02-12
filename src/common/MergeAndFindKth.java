@@ -7,7 +7,7 @@ package common;
  * Time: 9:02 PM
  */
 public class MergeAndFindKth {
-  public int findKth(int []a, int []b, int k) {
+  public int findKth(int[] a, int[] b, int k) {
 
     if (a.length + b.length <= k) {
       return -1;

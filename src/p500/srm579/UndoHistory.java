@@ -215,13 +215,9 @@ public class UndoHistory {
       final String line = lines[i];
       if (i > 0) {
         // reset buffer
-        int case1 = line.startsWith(cur) ? (1 + line.length() - cur.length()) : 99999;
-        int case2 = 2 + 1 + cutString(undo, line).length();
-        if (case1 < case2) {
-          result += case1;
-        } else {
-          result += case2;
-        }
+        result += Math.min(
+            line.startsWith(cur) ? (1 + line.length() - cur.length()) : 99999,
+            2 + 1 + cutString(undo, line).length());
       } else {
         result += line.length() + 1;
       }

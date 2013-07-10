@@ -13,6 +13,10 @@ import java.util.Set;
  * Date: 5/25/13
  * Time: 8:33 PM
  */
+
+/**
+ * найти две точки с максимальным количеством совпадений в этих точках
+ */
 public class EelAndRabbit {
   public int getmax(int[] l, int[] t) {
     int N = l.length;

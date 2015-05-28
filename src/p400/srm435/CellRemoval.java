@@ -7,6 +7,34 @@ import utils.ExampleRunner;
  */
 public class CellRemoval {
   public int cellsLeft(int[] parent, int deletedCell) {
+    return solutionTwo(parent, deletedCell);
+  }
+
+  private int solutionTwo(int[] parent, int deletedCell) {
+    int root = -1;
+    for (int i = 0; i < parent.length; i++) {
+      int i1 = parent[i];
+      if (i1 == -1) {
+        root = i;
+      }
+    }
+    return solve(parent, deletedCell, root);
+  }
+
+  private int solve(int[] parent, int deletedCell, int x) {
+    if (x == deletedCell) {
+      return 0;
+    }
+    int r = 0;
+    for (int i = 0; i < parent.length; i++) {
+      if (parent[i] == x) {
+        r += solve(parent, deletedCell, i);
+      }
+    }
+    return r != 0 ? r : 1;
+  }
+
+  private int solutionOne(int[] parent, int deletedCell) {
     boolean[][] c = new boolean[parent.length][parent.length];
     int rootIndex = 0;
     for (int i = 0; i < parent.length; i++) {
